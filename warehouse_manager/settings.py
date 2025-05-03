@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-)f8p#5b2!7#a7u+&bpzpnmu@p)fg+2mn35$*c_r1(t7mxcfqwi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['node0.tuna-malloc.advosuwmadison-pg0.wisc.cloudlab.us']
 
 
 # Application definition
@@ -76,14 +77,16 @@ WSGI_APPLICATION = 'warehouse_manager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'warehouse_db',
-        'USER': 'warehouse_user',
-        'PASSWORD': 'warehouse_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DJANGO_DB_NAME', 'warehouse_db'),
+        'USER': os.environ.get('DJANGO_DB_USER', 'warehouse_user'),
+        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', 'warehouse_password'),
+        'HOST': os.environ.get('DJANGO_DB_HOST', 'db'),
+        'PORT': os.environ.get('DJANGO_DB_PORT', '5432'),
     }
 }
 
+REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
+REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

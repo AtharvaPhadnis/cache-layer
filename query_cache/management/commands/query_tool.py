@@ -20,7 +20,7 @@ class Command(BaseCommand):
         hash_key = hashlib.sha224(sql.encode()).hexdigest()
         redis_key = f"sql_cache:{hash_key}"
         
-        r = redis.Redis(host='localhost', port=6379, db=0)
+        r = redis.Redis(host='redis', port=6379, db=0)
         
         cached_result = r.get(redis_key)
         
