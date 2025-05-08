@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)f8p#5b2!7#a7u+&bpzpnmu@p)fg+2mn35$*c_r1(t7mxcfqwi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['node0.tuna-malloc.advosuwmadison-pg0.wisc.cloudlab.us']
+ALLOWED_HOSTS = ['node0.ap-new.advosuwmadison-pg0.wisc.cloudlab.us']
 
 
 # Application definition
