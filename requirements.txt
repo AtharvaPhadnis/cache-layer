@@ -1,5 +1,6 @@
 asgiref==3.8.1
 faker
+djangorestframework
 django-debug-toolbar
 async-timeout==5.0.1
 Django==5.2
